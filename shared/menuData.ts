@@ -8,7 +8,7 @@ export const MENU_ITEMS: MenuItem[] = [
     name: 'Hyderabadi Biryani',
     price: 299,
     category: 'Biryani',
-    image: 'https://images.unsplash.com/photo-1618164436241-4473940571ce?w=500&h=500&fit=crop',
+    image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Chicken_Hyderabadi_Biryani.JPG?width=800',
     description: 'Authentic Hyderabadi biryani with fragrant basmati rice and tender meat',
   },
   {
@@ -16,7 +16,7 @@ export const MENU_ITEMS: MenuItem[] = [
     name: 'Lucknowi Biryani',
     price: 329,
     category: 'Biryani',
-    image: 'https://images.unsplash.com/photo-1609501676725-7186f017a4b7?w=500&h=500&fit=crop',
+    image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Awadhi_mutton_biryani.jpg?width=800',
     description: 'Royal Lucknowi style biryani with marinated meat and fragrant spices',
   },
   {
@@ -24,7 +24,7 @@ export const MENU_ITEMS: MenuItem[] = [
     name: 'Kacchi Biryani',
     price: 349,
     category: 'Biryani',
-    image: 'https://images.unsplash.com/photo-1585937421612-a0f3cb41d00f?w=500&h=500&fit=crop',
+    image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Kacchi_Dum_Biryani.JPG?width=800',
     description: 'Traditional raw meat biryani cooked in sealed pot',
   },
   {
@@ -32,7 +32,7 @@ export const MENU_ITEMS: MenuItem[] = [
     name: 'Paneer Biryani',
     price: 249,
     category: 'Biryani',
-    image: 'https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?w=500&h=500&fit=crop',
+    image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Panner_Vegetable_Hyderabad_Biryani.jpg?width=800',
     description: 'Vegetarian delight with cottage cheese and aromatic rice',
   },
   // Appetizers
@@ -41,7 +41,7 @@ export const MENU_ITEMS: MenuItem[] = [
     name: 'Seekh Kabab',
     price: 199,
     category: 'Appetizers',
-    image: 'https://images.unsplash.com/photo-1606787620884-c3886b3f58e7?w=500&h=500&fit=crop',
+    image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Seekh_Kebab.JPG?width=800',
     description: 'Grilled minced meat skewers with spices',
   },
   {
@@ -49,7 +49,7 @@ export const MENU_ITEMS: MenuItem[] = [
     name: 'Shami Kabab',
     price: 189,
     category: 'Appetizers',
-    image: 'https://images.unsplash.com/photo-1599599810694-b5ac4dd0b5b1?w=500&h=500&fit=crop',
+    image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Chicken_Shami_Kabab.JPG?width=800',
     description: 'Crispy patties of minced meat and lentils',
   },
   {
@@ -57,7 +57,7 @@ export const MENU_ITEMS: MenuItem[] = [
     name: 'Samosa',
     price: 79,
     category: 'Appetizers',
-    image: 'https://images.unsplash.com/photo-1585238341710-4b4e6db51910?w=500&h=500&fit=crop',
+    image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Samosa.JPG?width=800',
     description: 'Golden fried pastry with spiced filling',
   },
   // Desserts
@@ -66,7 +66,7 @@ export const MENU_ITEMS: MenuItem[] = [
     name: 'Kheer',
     price: 99,
     category: 'Desserts',
-    image: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=500&h=500&fit=crop',
+    image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Kheer_with_condensed_milk..JPG?width=800',
     description: 'Rice pudding with cardamom and nuts',
   },
   {
@@ -74,7 +74,7 @@ export const MENU_ITEMS: MenuItem[] = [
     name: 'Shahi Tukda',
     price: 129,
     category: 'Desserts',
-    image: 'https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=500&h=500&fit=crop',
+    image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Shahi_tukda_or_toast.JPG?width=800',
     description: 'Bread cream dessert with dry fruits',
   },
   // Beverages
@@ -83,7 +83,7 @@ export const MENU_ITEMS: MenuItem[] = [
     name: 'Masala Chai',
     price: 39,
     category: 'Beverages',
-    image: 'https://images.unsplash.com/photo-1597318457413-6a2f9f2a7d6a?w=500&h=500&fit=crop',
+    image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Masala_Chai.JPG?width=800',
     description: 'Aromatic Indian spiced tea',
   },
   {
@@ -91,7 +91,7 @@ export const MENU_ITEMS: MenuItem[] = [
     name: 'Mango Lassi',
     price: 59,
     category: 'Beverages',
-    image: 'https://images.unsplash.com/photo-1553305589-d2229ba7433b?w=500&h=500&fit=crop',
+    image: 'https://commons.wikimedia.org/wiki/Special:FilePath/Mango_Lassi_made_out_of_Mango_pulp_and_Milk.JPG?width=800',
     description: 'Refreshing yogurt drink with mango',
   },
 ];
