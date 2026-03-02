@@ -10,9 +10,9 @@
   "cleanUrls": true,
   "trailingSlash": false
   ,
-  "routes": [
-    { "src": "^/$", "dest": "/index.html" },
-    { "src": "^/menu/?$", "dest": "/menu.html" },
-    { "src": "^/dashboard/?$", "dest": "/dashboard.html" }
+  "rewrites": [
+    { "source": "/", "destination": "/index.html" },
+    { "source": "/menu", "destination": "/menu.html" },
+    { "source": "/dashboard", "destination": "/dashboard.html" }
   ]
 }
