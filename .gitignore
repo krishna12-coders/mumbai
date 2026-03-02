@@ -11,3 +11,6 @@ dist/
 *.swp
 *.swo
 *~
+
+app/.expo/
+app/android/app/debug.keystore
