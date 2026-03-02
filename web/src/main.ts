@@ -1,32 +1,26 @@
 import './style.css';
 import type { MenuItem } from './types';
+import { FEATURED_ITEMS } from '../../shared/menuData';
 
-const featuredItems: MenuItem[] = [
+const heroImages = [
   {
-    id: '1',
-    name: 'Hyderabadi Royal Biryani',
-    price: 299,
-    category: 'Biryani',
-    image: 'https://images.pexels.com/photos/3915857/pexels-photo-3915857.jpeg?auto=compress&cs=tinysrgb&w=500&h=500&fit=crop',
-    description: 'Authentic Hyderabadi biryani perfected over generations with fragrant basmati rice and tender meat',
+    url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Chicken_Hyderabadi_Biryani.JPG?width=1200',
+    alt: 'Hyderabadi Biryani',
   },
   {
-    id: '2',
-    name: 'Lucknowi Premium Biryani',
-    price: 329,
-    category: 'Biryani',
-    image: 'https://images.pexels.com/photos/2097090/pexels-photo-2097090.jpeg?auto=compress&cs=tinysrgb&w=500&h=500&fit=crop',
-    description: 'Royal Lucknowi style biryani with marinated meat, fragrant spices, and premium basmati rice',
+    url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Awadhi_mutton_biryani.jpg?width=1200',
+    alt: 'Lucknowi Biryani',
   },
   {
-    id: '3',
-    name: 'Vegetarian Paneer Biryani',
-    price: 249,
-    category: 'Biryani',
-    image: 'https://images.pexels.com/photos/3819547/pexels-photo-3819547.jpeg?auto=compress&cs=tinysrgb&w=500&h=500&fit=crop',
-    description: 'Vegetarian delight with cottage cheese, aromatic rice, and traditional spices',
+    url: 'https://commons.wikimedia.org/wiki/Special:FilePath/Panner_Vegetable_Hyderabad_Biryani.jpg?width=1200',
+    alt: 'Paneer Biryani',
   },
 ];
+
+let currentHeroImage = 0;
+let heroInterval: number | null = null;
+
+const featuredItems: MenuItem[] = FEATURED_ITEMS;
 
 function initHomePage(): void {
   renderNavbar();
@@ -74,7 +68,22 @@ function renderHeroSection(): void {
 
   hero.innerHTML = `
     <section class="min-h-screen bg-gradient-to-br from-dark via-gray-900 to-dark text-light flex items-center justify-center relative overflow-hidden">
-      <div class="absolute inset-0 opacity-10">
+      <!-- Background Image Slideshow -->
+      <div class="absolute inset-0 z-0">
+        ${heroImages
+          .map(
+            (img, idx) => `
+          <div class="hero-slide absolute inset-0 transition-opacity duration-1000 ease-in-out ${idx === 0 ? 'opacity-100' : 'opacity-0'}" data-slide="${idx}">
+            <img src="${img.url}" alt="${img.alt}" class="w-full h-full object-cover" />
+            <div class="absolute inset-0 bg-gradient-to-t from-dark via-dark/70 to-dark/50"></div>
+          </div>
+        `
+          )
+          .join('')}
+      </div>
+      
+      <!-- Decorative elements -->
+      <div class="absolute inset-0 opacity-10 z-0 pointer-events-none">
         <div class="absolute top-20 left-10 w-72 h-72 bg-primary rounded-full mix-blend-multiply filter blur-3xl animate-pulse"></div>
         <div class="absolute -bottom-8 right-10 w-72 h-72 bg-yellow-500 rounded-full mix-blend-multiply filter blur-3xl animate-pulse delay-2000"></div>
       </div>
@@ -105,7 +114,18 @@ function renderHeroSection(): void {
           </button>
         </div>
         
-        <div class="mt-16 grid grid-cols-3 gap-8 max-w-2xl mx-auto">
+        <!-- Slide indicators -->
+        <div class="flex justify-center gap-2 mt-8">
+          ${heroImages
+            .map(
+              (_, idx) => `
+            <button class="hero-dot w-3 h-3 rounded-full transition-all duration-300 ${idx === 0 ? 'bg-primary w-8' : 'bg-gray-500 hover:bg-gray-400'}" data-slide="${idx}"></button>
+          `
+            )
+            .join('')}
+        </div>
+        
+        <div class="mt-12 grid grid-cols-3 gap-8 max-w-2xl mx-auto">
           <div class="text-center">
             <p class="text-3xl font-bold text-primary">🔥</p>
             <p class="text-gray-300 text-sm mt-2">Premium Quality</p>
@@ -127,6 +147,53 @@ function renderHeroSection(): void {
     const featured = document.getElementById('featured');
     featured?.scrollIntoView({ behavior: 'smooth' });
   });
+
+  // Start the slideshow
+  startHeroSlideshow();
+
+  // Add click handlers for dots
+  document.querySelectorAll('.hero-dot').forEach((dot) => {
+    dot.addEventListener('click', (e) => {
+      const target = e.currentTarget as HTMLButtonElement;
+      const slideIdx = parseInt(target.dataset.slide || '0');
+      goToSlide(slideIdx);
+    });
+  });
+}
+
+function startHeroSlideshow(): void {
+  if (heroInterval) clearInterval(heroInterval);
+  heroInterval = window.setInterval(() => {
+    const nextIndex = (currentHeroImage + 1) % heroImages.length;
+    goToSlide(nextIndex);
+  }, 5000);
+}
+
+function goToSlide(index: number): void {
+  const slides = document.querySelectorAll('.hero-slide');
+  const dots = document.querySelectorAll('.hero-dot');
+
+  slides.forEach((slide, idx) => {
+    if (idx === index) {
+      slide.classList.remove('opacity-0');
+      slide.classList.add('opacity-100');
+    } else {
+      slide.classList.remove('opacity-100');
+      slide.classList.add('opacity-0');
+    }
+  });
+
+  dots.forEach((dot, idx) => {
+    if (idx === index) {
+      dot.classList.remove('bg-gray-500', 'hover:bg-gray-400');
+      dot.classList.add('bg-primary', 'w-8');
+    } else {
+      dot.classList.remove('bg-primary', 'w-8');
+      dot.classList.add('bg-gray-500', 'hover:bg-gray-400');
+    }
+  });
+
+  currentHeroImage = index;
 }
 
 function renderAboutSection(): void {

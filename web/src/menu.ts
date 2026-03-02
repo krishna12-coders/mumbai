@@ -1,104 +1,11 @@
 import './style.css';
 import { CartManager, InvoiceGenerator, WhatsAppIntegration } from './utils';
 import type { MenuItem, CartItem } from './types';
+import { MENU_ITEMS } from '../../shared/menuData';
 
 const MENU_STORAGE_KEY = 'mumbai_jaan_menu';
 
-let menuItems: MenuItem[] = [
-  // Biryani
-  {
-    id: '1',
-    name: 'Hyderabadi Biryani',
-    price: 299,
-    category: 'Biryani',
-    image: 'https://images.pexels.com/photos/3915857/pexels-photo-3915857.jpeg?auto=compress&cs=tinysrgb&w=500&h=500&fit=crop',
-    description: 'Authentic Hyderabadi biryani with fragrant basmati rice',
-  },
-  {
-    id: '2',
-    name: 'Lucknowi Biryani',
-    price: 329,
-    category: 'Biryani',
-    image: 'https://images.pexels.com/photos/2097090/pexels-photo-2097090.jpeg?auto=compress&cs=tinysrgb&w=500&h=500&fit=crop',
-    description: 'Royal Lucknowi style with marinated meat',
-  },
-  {
-    id: '3',
-    name: 'Kacchi Biryani',
-    price: 349,
-    category: 'Biryani',
-    image: 'https://images.pexels.com/photos/1213317/pexels-photo-1213317.jpeg?auto=compress&cs=tinysrgb&w=500&h=500&fit=crop',
-    description: 'Traditional raw meat biryani cooked in sealed pot',
-  },
-  {
-    id: '4',
-    name: 'Paneer Biryani',
-    price: 249,
-    category: 'Biryani',
-    image: 'https://images.pexels.com/photos/3819547/pexels-photo-3819547.jpeg?auto=compress&cs=tinysrgb&w=500&h=500&fit=crop',
-    description: 'Vegetarian delight with cottage cheese',
-  },
-  // Appetizers
-  {
-    id: '5',
-    name: 'Seekh Kabab',
-    price: 199,
-    category: 'Appetizers',
-    image: 'https://images.pexels.com/photos/5737453/pexels-photo-5737453.jpeg?auto=compress&cs=tinysrgb&w=500&h=500&fit=crop',
-    description: 'Grilled minced meat skewers with spices',
-  },
-  {
-    id: '6',
-    name: 'Shami Kabab',
-    price: 189,
-    category: 'Appetizers',
-    image: 'https://images.pexels.com/photos/1092730/pexels-photo-1092730.jpeg?auto=compress&cs=tinysrgb&w=500&h=500&fit=crop',
-    description: 'Crispy patties of minced meat and lentils',
-  },
-  {
-    id: '7',
-    name: 'Samosa',
-    price: 79,
-    category: 'Appetizers',
-    image: 'https://images.pexels.com/photos/1092730/pexels-photo-1092730.jpeg?auto=compress&cs=tinysrgb&w=500&h=500&fit=crop',
-    description: 'Golden fried pastry with spiced filling',
-  },
-  // Desserts
-  {
-    id: '8',
-    name: 'Kheer',
-    price: 99,
-    category: 'Desserts',
-    image: 'https://images.pexels.com/photos/1126359/pexels-photo-1126359.jpeg?auto=compress&cs=tinysrgb&w=500&h=500&fit=crop',
-    description: 'Rice pudding with cardamom and nuts',
-  },
-  {
-    id: '9',
-    name: 'Shahi Tukda',
-    price: 129,
-    category: 'Desserts',
-    image: 'https://images.pexels.com/photos/821365/pexels-photo-821365.jpeg?auto=compress&cs=tinysrgb&w=500&h=500&fit=crop',
-    description: 'Bread cream dessert with dry fruits',
-  },
-  // Beverages
-  {
-    id: '10',
-    name: 'Masala Chai',
-    price: 39,
-    category: 'Beverages',
-    image: 'https://images.pexels.com/photos/312418/pexels-photo-312418.jpeg?auto=compress&cs=tinysrgb&w=500&h=500&fit=crop',
-    description: 'Aromatic Indian spiced tea',
-  },
-  {
-    id: '11',
-    name: 'Mango Lassi',
-    price: 59,
-    category: 'Beverages',
-    image: 'https://images.pexels.com/photos/3407857/pexels-photo-3407857.jpeg?auto=compress&cs=tinysrgb&w=500&h=500&fit=crop',
-    description: 'Refreshing yogurt drink with mango',
-  },
-];
-
+let menuItems: MenuItem[] = [...MENU_ITEMS];
 let filteredItems = menuItems;
 
 // Load custom menu items from admin
